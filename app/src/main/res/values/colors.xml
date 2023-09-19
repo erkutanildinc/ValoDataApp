@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="azul">#bd3944</color>
+    <color name="lightred">#fd4556</color>
+    <color name="cupidsEye">#fffbf5</color>
+</resources>

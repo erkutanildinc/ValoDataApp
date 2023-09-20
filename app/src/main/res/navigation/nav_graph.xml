@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_categoriesFragment_to_characterListFragment"
             app:destination="@id/characterListFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_mapListFragment"
+            app:destination="@id/mapListFragment" />
     </fragment>
     <fragment
         android:id="@+id/characterListFragment"
@@ -21,6 +24,15 @@
         tools:layout="@layout/fragment_character_list" >
         <action
             android:id="@+id/action_characterListFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapListFragment"
+        android:name="com.example.valodata.view.MapListFragment"
+        android:label="fragment_map_list"
+        tools:layout="@layout/fragment_map_list" >
+        <action
+            android:id="@+id/action_mapListFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
     </fragment>
 </navigation>

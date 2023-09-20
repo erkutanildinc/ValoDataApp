@@ -19,10 +19,10 @@ class CharacterViewModel : ViewModel() {
 
 
     fun refreshData(){
-        getDataFromAPI()
+        getAgentsFromAPI()
     }
 
-    private fun getDataFromAPI(){
+    private fun getAgentsFromAPI(){
         agentsProgressbar.value = true
 
         job = CoroutineScope(Dispatchers.IO).launch {
@@ -31,8 +31,9 @@ class CharacterViewModel : ViewModel() {
             withContext(Dispatchers.Main){
                 if (response.isSuccessful) {
                     response.body()?.let {
-                            val agents = it
-                            print("LALALALALALA")
+                            val agentsResponse = it
+                            agents.value= agentsResponse.data
+                            agentsProgressbar.value= false
                         }
                     }
                 }

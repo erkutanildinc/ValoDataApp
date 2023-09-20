@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="25dp"
-    android:layout_marginLeft="15dp"
+    android:padding="20dp"
+    android:layout_marginLeft="18dp"
     android:layout_marginTop="10dp"
+    android:layout_marginBottom="5dp"
     android:orientation="vertical"
     android:background="@drawable/radius_layout_for_item">
 
@@ -19,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="GEKKO"
-            android:textSize="30dp"
-            android:padding="5dp"
+            android:textSize="28dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textColor="@color/white"
             android:fontFamily="@font/oswald">

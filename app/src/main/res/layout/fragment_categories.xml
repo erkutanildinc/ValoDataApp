@@ -6,60 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".view.CategoriesFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/charactersButton"
-        android:layout_width="170dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/radius_layout_for_item"
-        android:fontFamily="@font/aldrich_regular"
-        android:text="AGENTS"
-        android:textColor="@color/cupidsEye"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/weaponsButton"
-        android:layout_width="170dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/radius_layout_for_item"
-        android:fontFamily="@font/aldrich_regular"
-        android:text="WEAPONS"
-        android:textColor="@color/cupidsEye"
-        android:textSize="24dp"
+    <LinearLayout
+        android:paddingVertical="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/mapsButton"
-        android:layout_width="170dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/radius_layout_for_item"
-        android:fontFamily="@font/aldrich_regular"
-        android:text="MAPS"
-        android:textColor="@color/cupidsEye"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weaponsButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/modesButton"
-        android:layout_width="170dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/radius_layout_for_item"
-        android:fontFamily="@font/aldrich_regular"
-        android:text="Modes"
-        android:textColor="@color/cupidsEye"
-        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/charactersButton" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/charactersButton"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="25dp"
+            android:background="@drawable/radius_layout_for_item"
+            android:fontFamily="@font/aldrich_regular"
+            android:text="AGENTS"
+            android:textColor="@color/cupidsEye"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/weaponsButton"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/radius_layout_for_item"
+            android:fontFamily="@font/aldrich_regular"
+            android:text="WEAPONS"
+            android:textColor="@color/cupidsEye"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.54"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/charactersButton" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mapsButton"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/radius_layout_for_item"
+            android:fontFamily="@font/aldrich_regular"
+            android:text="MAPS"
+            android:textColor="@color/cupidsEye"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weaponsButton" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

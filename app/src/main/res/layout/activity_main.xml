@@ -14,6 +14,8 @@
         android:text="ValoData"
         android:fontFamily="@font/aldrich_regular"
         android:textSize="35dp"
+        android:drawableLeft="@drawable/valo"
+        android:drawablePadding="10dp"
         android:textStyle="bold"
         android:textColor="@color/azul"
         app:layout_constraintEnd_toEndOf="parent"

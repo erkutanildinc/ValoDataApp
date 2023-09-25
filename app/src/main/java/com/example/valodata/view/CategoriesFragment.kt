@@ -16,6 +16,7 @@ class CategoriesFragment : Fragment() {
 
     private lateinit var agentsButton : AppCompatButton
     private lateinit var mapsButton : AppCompatButton
+    private lateinit var weaponsButton : AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,7 @@ class CategoriesFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_categories, container, false)
         agentsButton = view.findViewById(R.id.charactersButton)
         mapsButton = view.findViewById(R.id.mapsButton)
+        weaponsButton = view.findViewById(R.id.weaponsButton)
         return view
     }
 
@@ -44,6 +46,12 @@ class CategoriesFragment : Fragment() {
             val action = CategoriesFragmentDirections.actionCategoriesFragmentToMapListFragment()
             Navigation.findNavController(it).navigate(action)
         }
+
+        weaponsButton.setOnClickListener {
+            val action = CategoriesFragmentDirections.actionCategoriesFragmentToWeaponListFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+
     }
 
 }

@@ -22,10 +22,10 @@ import com.example.valodata.viewmodel.MapViewModel
 
 class MapListFragment : Fragment() {
 
-    private lateinit var mapsViewModel : MapViewModel
+    private lateinit var mapsViewModel: MapViewModel
     private lateinit var mapsRecyclerView: RecyclerView
-    private lateinit var mapsProgressBar : ProgressBar
-    lateinit var mapAdapter : MapAdapter
+    private lateinit var mapsProgressBar: ProgressBar
+    lateinit var mapAdapter: MapAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,8 +51,8 @@ class MapListFragment : Fragment() {
         observeLiveData()
     }
 
-    fun observeLiveData(){
-        mapsViewModel.maps.observe(viewLifecycleOwner, Observer {maps ->
+    private fun observeLiveData() {
+        mapsViewModel.maps.observe(viewLifecycleOwner, Observer { maps ->
             maps?.let {
                 mapsRecyclerView.visibility = View.VISIBLE
                 mapsRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -61,12 +61,11 @@ class MapListFragment : Fragment() {
             }
         })
 
-        mapsViewModel.mapProgressBar.observe(viewLifecycleOwner, Observer {progress->
-            if(progress){
+        mapsViewModel.mapProgressBar.observe(viewLifecycleOwner, Observer { progress ->
+            if (progress) {
                 mapsProgressBar.visibility = View.VISIBLE
                 mapsRecyclerView.visibility = View.GONE
-            }
-            else{
+            } else {
                 mapsProgressBar.visibility = View.GONE
                 mapsRecyclerView.visibility = View.VISIBLE
             }

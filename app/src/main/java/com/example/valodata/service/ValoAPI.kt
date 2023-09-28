@@ -1,5 +1,7 @@
 package com.example.valodata.service
 
+import com.example.valodata.model.Agent
+import com.example.valodata.model.AgentDetailResponse
 import com.example.valodata.model.AgentResponse
 import com.example.valodata.model.MapsResponse
 import com.example.valodata.model.WeaponsResponse
@@ -24,5 +26,9 @@ class ValoAPI {
 
     suspend fun getWeapons() : Response<WeaponsResponse>{
         return api.getWeapons()
+    }
+
+    suspend fun getAgentByUUID(agentUUID : String): Response<AgentDetailResponse>{
+        return api.getAgentByUuid(agentUUID)
     }
 }

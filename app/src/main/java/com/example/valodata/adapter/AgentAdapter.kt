@@ -1,16 +1,16 @@
 package com.example.valodata.adapter
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AbsListView.RecyclerListener
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.valodata.R
 import com.example.valodata.model.Agent
+import com.example.valodata.view.CharacterListFragmentDirections
 
 class AgentAdapter(var list : ArrayList<Agent>) : RecyclerView.Adapter<AgentAdapter.AgentViewHolder>() {
 
@@ -37,6 +37,11 @@ class AgentAdapter(var list : ArrayList<Agent>) : RecyclerView.Adapter<AgentAdap
 
         agentName.text = list.get(position).displayName
         Glide.with(holder.view).load(list.get(position).displayIcon).into(agentImage)
+
+        holder.itemView.setOnClickListener {
+            val action = CharacterListFragmentDirections.actionCharacterListFragmentToAgentDetailFragment(list.get(position).uuid)
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
 }

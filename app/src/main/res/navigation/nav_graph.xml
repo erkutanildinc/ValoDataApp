@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_weaponListFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_weaponListFragment_to_weaponDetailFragment"
+            app:destination="@id/weaponDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/agentDetailFragment"
@@ -60,6 +63,18 @@
             app:destination="@id/characterListFragment" />
         <argument
             android:name="agentUUID"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/weaponDetailFragment"
+        android:name="com.example.valodata.view.WeaponDetailFragment"
+        android:label="fragment_weapon_detail"
+        tools:layout="@layout/fragment_weapon_detail" >
+        <action
+            android:id="@+id/action_weaponDetailFragment_to_weaponListFragment"
+            app:destination="@id/weaponListFragment" />
+        <argument
+            android:name="weaponUUID"
             app:argType="string" />
     </fragment>
 </navigation>

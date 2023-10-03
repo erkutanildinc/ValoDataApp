@@ -5,10 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.valodata.R
 import com.example.valodata.model.Weapon
+import com.example.valodata.view.CharacterListFragmentDirections
+import com.example.valodata.view.WeaponListFragmentDirections
 
 class WeaponAdapter(var list : ArrayList<Weapon>) : RecyclerView.Adapter<WeaponAdapter.WeaponViewHolder>() {
 
@@ -35,5 +38,10 @@ class WeaponAdapter(var list : ArrayList<Weapon>) : RecyclerView.Adapter<WeaponA
 
         weaponName.text = list.get(position).displayName.toString().uppercase()
         Glide.with(holder.view).load(list.get(position).displayIcon).into(weaponImage)
+
+        holder.itemView.setOnClickListener {
+            val action = WeaponListFragmentDirections.actionWeaponListFragmentToWeaponDetailFragment(list.get(position).uuid)
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }

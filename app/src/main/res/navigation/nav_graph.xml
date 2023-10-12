@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_mapListFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_mapListFragment_to_mapDetailFragment"
+            app:destination="@id/mapDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/weaponListFragment"
@@ -75,6 +78,18 @@
             app:destination="@id/weaponListFragment" />
         <argument
             android:name="weaponUUID"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapDetailFragment"
+        android:name="com.example.valodata.view.MapDetailFragment"
+        android:label="fragment_map_detail"
+        tools:layout="@layout/fragment_map_detail" >
+        <action
+            android:id="@+id/action_mapDetailFragment_to_mapListFragment"
+            app:destination="@id/mapListFragment" />
+        <argument
+            android:name="mapUUID"
             app:argType="string" />
     </fragment>
 </navigation>

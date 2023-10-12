@@ -26,6 +26,9 @@ class WeaponDetailFragment : Fragment() {
     private lateinit var weaponReloadTextView : TextView
     private lateinit var weaponFireTextView : TextView
     private lateinit var weaponMagazineTextView : TextView
+    private lateinit var weaponHeadDamTextView : TextView
+    private lateinit var weaponBodyDamTextView : TextView
+    private lateinit var weaponLegDamTextView : TextView
     private lateinit var weaponUUID : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +49,9 @@ class WeaponDetailFragment : Fragment() {
         weaponReloadTextView = view.findViewById(R.id.weaponDetailReloadTimeTextView)
         weaponFireTextView = view.findViewById(R.id.weaponDetailFireRateTextView)
         weaponMagazineTextView = view.findViewById(R.id.weaponDetailMagazineTextView)
+        weaponHeadDamTextView = view.findViewById(R.id.weaponDetailHeadDamTextView)
+        weaponBodyDamTextView = view.findViewById(R.id.weaponDetailBodyDamTextView)
+        weaponLegDamTextView = view.findViewById(R.id.weaponDetailLegDamTextView)
         return view
     }
 
@@ -71,6 +77,9 @@ class WeaponDetailFragment : Fragment() {
         weaponFireTextView.visibility = View.GONE
         weaponMagazineTextView.visibility = View.GONE
         weaponImageView.visibility = View.GONE
+        weaponHeadDamTextView.visibility = View.GONE
+        weaponBodyDamTextView.visibility = View.GONE
+        weaponLegDamTextView.visibility = View.GONE
 
         weaponDetailLiveModel.weaponLiveData.observe(viewLifecycleOwner, Observer {weapon->
 
@@ -81,6 +90,9 @@ class WeaponDetailFragment : Fragment() {
             weaponFireTextView.visibility = View.VISIBLE
             weaponMagazineTextView.visibility = View.VISIBLE
             weaponImageView.visibility = View.VISIBLE
+            weaponHeadDamTextView.visibility = View.VISIBLE
+            weaponBodyDamTextView.visibility = View.VISIBLE
+            weaponLegDamTextView.visibility = View.VISIBLE
 
             weaponNameTextView.text = weapon.displayName.toString().uppercase()
             weaponCategoryTextView.text = weapon.shopData?.categoryText ?: "Category"
@@ -88,6 +100,12 @@ class WeaponDetailFragment : Fragment() {
             weaponReloadTextView.text = "Reload Time: "+weapon.weaponStats?.reloadTimeSeconds.toString()
             weaponMagazineTextView.text = "Magazine: " +weapon.weaponStats?.magazineSize.toString()
             weaponFireTextView.text = "Fire Rate: "+weapon.weaponStats?.fireRate.toString()
+            weaponHeadDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.headDamage?.toInt()
+                .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt().toString()
+            weaponBodyDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.bodyDamage?.toInt()
+                .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage?.toInt().toString()
+            weaponLegDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.legDamage?.toInt()
+                .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.legDamage?.toInt().toString()
             context?.let {
                 Glide.with(it).load(weapon.displayIcon).into(weaponImageView)
             }

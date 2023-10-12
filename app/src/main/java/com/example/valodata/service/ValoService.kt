@@ -2,6 +2,7 @@ package com.example.valodata.service
 
 import com.example.valodata.model.AgentDetailResponse
 import com.example.valodata.model.AgentResponse
+import com.example.valodata.model.MapsDetailResponse
 import com.example.valodata.model.MapsResponse
 import com.example.valodata.model.WeaponDetailResponse
 import com.example.valodata.model.WeaponsResponse
@@ -26,5 +27,8 @@ interface ValoService {
 
     @GET("v1/weapons/{weaponUuid}")
     suspend fun getWeaponByUuid(@Path("weaponUuid") weaponUuid : String) : Response<WeaponDetailResponse>
+
+    @GET("v1/weapons/{mapUuid}")
+    suspend fun getMapByUuid(@Path("mapUuid") mapUuid : String) : Response<MapsDetailResponse>
 
 }

@@ -29,6 +29,7 @@ class AgentDetailFragment : Fragment() {
     private lateinit var agentDetailLiveModel: AgentDetailViewModel
     private lateinit var agentBackgroundImageView : ImageView
     private lateinit var agentPortraitImageView : ImageView
+    private lateinit var agentCategoryImageView : ImageView
     private lateinit var agentNameTextView : TextView
     private lateinit var agentRoleTextView: TextView
     private lateinit var agentDescriptionTextView : TextView
@@ -54,6 +55,7 @@ class AgentDetailFragment : Fragment() {
         agentDescriptionTextView = view.findViewById(R.id.agentDetailDescription)
         agentDetailProgressBar = view.findViewById(R.id.agentDetailProgressBar)
         agentAbilityRecyclerList = view.findViewById(R.id.agentDetailAbilityRecyclerView)
+        agentCategoryImageView = view.findViewById(R.id.agentDetailCategoryImage)
         return view
     }
 
@@ -77,6 +79,7 @@ class AgentDetailFragment : Fragment() {
         agentNameTextView.visibility = View.GONE
         agentDescriptionTextView.visibility = View.GONE
         agentRoleTextView.visibility = View.GONE
+        agentCategoryImageView.visibility = View.GONE
 
 
         agentDetailLiveModel.agentLiveData.observe(viewLifecycleOwner, Observer { agent ->
@@ -85,6 +88,7 @@ class AgentDetailFragment : Fragment() {
             agentNameTextView.visibility = View.VISIBLE
             agentDescriptionTextView.visibility = View.VISIBLE
             agentRoleTextView.visibility = View.VISIBLE
+            agentCategoryImageView.visibility = View.VISIBLE
             agentNameTextView.text = agent.displayName.uppercase()
             agentDescriptionTextView.text = agent.description
             agentAbilityRecyclerList.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
@@ -94,6 +98,8 @@ class AgentDetailFragment : Fragment() {
             context?.let {
                 Glide.with(it).load(agent.fullPortrait).into(agentPortraitImageView)
                 Glide.with(it).load(agent.background).into(agentBackgroundImageView)
+                Glide.with(it).load(agent.role?.displayIcon).into(agentCategoryImageView)
+                print("asdasdasd")
             }
         })
         agentDetailLiveModel.agentDetailProgressBar.observe(

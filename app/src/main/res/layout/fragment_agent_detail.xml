@@ -48,17 +48,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/agentDetailBackgroundPic"></TextView>
 
-        <TextView
-            android:id="@+id/agentDetailRoleText"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="24dp"
-            android:text="Initiator"
-            android:textSize="25dp"
-            android:textStyle="italic"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/agentDetailBackgroundPic"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/agentDetailBackgroundPic">
+
+            <ImageView
+                android:id="@+id/agentDetailCategoryImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/displayico"
+                app:tint="@color/lightGray"
+                app:layout_constraintEnd_toStartOf="@+id/agentDetailRoleText"
+                />
+
+            <TextView
+                android:id="@+id/agentDetailRoleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Initiator"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/agentDetailBackgroundPic"></TextView>
+
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/agentDetailDescription"
@@ -120,6 +144,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/skillsTextView"
             app:layout_constraintVertical_bias="1.0" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

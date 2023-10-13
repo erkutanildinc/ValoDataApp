@@ -9,7 +9,7 @@ data class Map (
     val uuid: String,
     val displayName: String,
     val narrativeDescription: String? = null,
-    val tacticalDescription: TacticalDescription? = null,
+    val tacticalDescription: String? = null,
     val coordinates: String? = null,
     val displayIcon: String? = null,
     val listViewIcon: String,

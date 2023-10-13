@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.369"
-        app:srcCompat="@drawable/valo" />
+        app:srcCompat="@drawable/valorant_icon" />
 
     <TextView
         android:layout_width="wrap_content"

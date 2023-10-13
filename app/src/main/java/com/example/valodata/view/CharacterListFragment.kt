@@ -49,10 +49,16 @@ class CharacterListFragment : Fragment() {
 
     fun observeLiveData(){
         characterViewModel.agents.observe(viewLifecycleOwner, Observer {agents->
+            var agentList = ArrayList<Agent>()
             agents?.let {
+                for(agent in agents){
+                    if(agent.isPlayableCharacter){
+                        agentList.add(agent)
+                    }
+                }
                 agentRecylerView.visibility = View.VISIBLE
                 agentRecylerView.layoutManager = GridLayoutManager(context,2)
-                agentAdapter = AgentAdapter(agents as ArrayList<Agent>)
+                agentAdapter = AgentAdapter(agentList)
                 agentRecylerView.adapter = agentAdapter
             }
         })

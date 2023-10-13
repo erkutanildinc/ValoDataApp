@@ -5,10 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.valodata.R
 import com.example.valodata.model.Map
+import com.example.valodata.view.MapListFragmentDirections
+import com.example.valodata.view.WeaponListFragmentDirections
 
 class MapAdapter(var list : ArrayList<Map>) : RecyclerView.Adapter<MapAdapter.MapViewHolder>() {
 
@@ -35,5 +38,10 @@ class MapAdapter(var list : ArrayList<Map>) : RecyclerView.Adapter<MapAdapter.Ma
 
         mapName.text = list.get(position).displayName
         Glide.with(holder.view).load(list.get(position).splash).into(mapImage)
+
+        holder.itemView.setOnClickListener {
+            val action = MapListFragmentDirections.actionMapListFragmentToMapDetailFragment(list.get(position).uuid)
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }

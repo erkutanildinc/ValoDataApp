@@ -52,6 +52,7 @@ class WeaponDetailFragment : Fragment() {
         weaponHeadDamTextView = view.findViewById(R.id.weaponDetailHeadDamTextView)
         weaponBodyDamTextView = view.findViewById(R.id.weaponDetailBodyDamTextView)
         weaponLegDamTextView = view.findViewById(R.id.weaponDetailLegDamTextView)
+        weaponDetailProgressBar = view.findViewById(R.id.weaponDetailProgressBar)
         return view
     }
 
@@ -69,6 +70,7 @@ class WeaponDetailFragment : Fragment() {
     }
 
     fun observeLiveData(){
+
 
         weaponNameTextView.visibility = View.GONE
         weaponCategoryTextView.visibility = View.GONE
@@ -108,6 +110,16 @@ class WeaponDetailFragment : Fragment() {
                 .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.legDamage?.toInt().toString()
             context?.let {
                 Glide.with(it).load(weapon.displayIcon).into(weaponImageView)
+            }
+        })
+
+        weaponDetailLiveModel.weaponDetailProgressbar.observe(viewLifecycleOwner, Observer { progress ->
+            progress?.let {
+                if (progress) {
+                    weaponDetailProgressBar.visibility = View.VISIBLE
+                } else {
+                    weaponDetailProgressBar.visibility = View.GONE
+                }
             }
         })
     }

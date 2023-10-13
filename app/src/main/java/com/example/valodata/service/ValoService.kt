@@ -28,7 +28,7 @@ interface ValoService {
     @GET("v1/weapons/{weaponUuid}")
     suspend fun getWeaponByUuid(@Path("weaponUuid") weaponUuid : String) : Response<WeaponDetailResponse>
 
-    @GET("v1/weapons/{mapUuid}")
+    @GET("v1/maps/{mapUuid}")
     suspend fun getMapByUuid(@Path("mapUuid") mapUuid : String) : Response<MapsDetailResponse>
 
 }

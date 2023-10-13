@@ -102,12 +102,19 @@ class WeaponDetailFragment : Fragment() {
             weaponReloadTextView.text = "Reload Time: "+weapon.weaponStats?.reloadTimeSeconds.toString()
             weaponMagazineTextView.text = "Magazine: " +weapon.weaponStats?.magazineSize.toString()
             weaponFireTextView.text = "Fire Rate: "+weapon.weaponStats?.fireRate.toString()
-            weaponHeadDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.headDamage?.toInt()
-                .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt().toString()
-            weaponBodyDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.bodyDamage?.toInt()
-                .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage?.toInt().toString()
-            weaponLegDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.legDamage?.toInt()
-                .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.legDamage?.toInt().toString()
+            if(weapon.weaponStats?.damageRanges?.size==2){
+                weaponHeadDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.headDamage?.toInt()
+                    .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt().toString()
+                weaponBodyDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.bodyDamage?.toInt()
+                    .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage?.toInt().toString()
+                weaponLegDamTextView.text = weapon.weaponStats?.damageRanges?.get(1)?.legDamage?.toInt()
+                    .toString() + " - " + weapon.weaponStats?.damageRanges?.get(0)?.legDamage?.toInt().toString()
+            }
+            else{
+                weaponHeadDamTextView.text = weapon.weaponStats?.damageRanges?.get(0)?.headDamage?.toInt().toString()
+                weaponBodyDamTextView.text = weapon.weaponStats?.damageRanges?.get(0)?.bodyDamage?.toInt().toString()
+                weaponLegDamTextView.text =  weapon.weaponStats?.damageRanges?.get(0)?.legDamage?.toInt().toString()
+            }
             context?.let {
                 Glide.with(it).load(weapon.displayIcon).into(weaponImageView)
             }

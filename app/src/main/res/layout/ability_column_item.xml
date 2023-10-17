@@ -12,9 +12,10 @@
         android:id="@+id/abilityImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:shapeAppearanceOverlay="@style/roundImageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></com.google.android.material.imageview.ShapeableImageView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundImageView"></com.google.android.material.imageview.ShapeableImageView>
 
     <TextView
         android:id="@+id/abilityNameTextView"

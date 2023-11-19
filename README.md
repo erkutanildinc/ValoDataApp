@@ -9,7 +9,7 @@ API: https://valorant-api.com/
 
 ## Tech Stack
 
-<div>:heavy_check_mark: MVVM Clean Archtitecture</div>
+<div>:heavy_check_mark: MVVM</div>
 <div>:heavy_check_mark: RecylerView: RecyclerView is a powerful and flexible Android UI component used to efficiently display large sets of data in a scrollable list or grid layout.</div>
 <div>:heavy_check_mark: Retrofit:  Retrofit is a REST client for Java/ Kotlin and Android by Square inc under Apache 2.0 license. Its a simple network library that is used for network transactions. By using this library we can seamlessly capture JSON response from web service/web API.</div>
 <div>:heavy_check_mark: Coroutines: They are a concurrency design pattern and framework that allow for efficient and non-blocking asynchronous programming.</div>
